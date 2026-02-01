@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* CENTER EVERYTHING */
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HEART BACKGROUND */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  font-size: 20px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* CARD */
+.card {
+  width: 380px;
+  max-width: 90%;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 28px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  background: #ff4d6d;
+  border: none;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 25px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button.clicked::after {
+  content: " 💖";
+  animation: pop 0.4s;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* INPUTS */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* LETTER STYLE */
+.letter {
+  background: rgba(255,255,255,0.25);
+  border-radius: 18px;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+for (let i = 0; i < 30; i++) {
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="main">
+
+<div class="card" id="p1">
+  <h1>Happy Anniversary 💕</h1>
+  <p>Hey my love 🥺</p>
+  <p>Ready for a tiny quiz?</p>
+  <button onclick="go(1)">Start 💌</button>
+</div>
+
+<div class="card hidden" id="p2">
+  <h3>When did we first meet? 🗓️</h3>
+  <button onclick="go(2,this)">12 Oct 2023</button>
+  <button onclick="go(2,this)">16 Oct 2023</button>
+  <button onclick="go(2,this)">20 Oct 2023</button>
+</div>
+
+<div class="card hidden" id="p3">
+  <h3>What do you like about me? 💖</h3>
+  <button onclick="go(3,this)">Eyes 👀</button>
+  <button onclick="go(3,this)">Smile 😊</button>
+  <button onclick="go(3,this)">Talking 🗣️</button>
+  <button onclick="go(3,this)">None 😏</button>
+</div>
+
+<div class="card hidden" id="p4">
+  <h3>The word I commonly use 😌</h3>
+  <button onclick="go(4,this)">chal</button>
+  <button onclick="go(4,this)">dobbey</button>
+  <button onclick="go(4,this)">faltu</button>
+  <button onclick="go(4,this)">nidhar ostundhi ❤️</button>
+</div>
+
+<div class="card hidden" id="p5">
+  <h3>Your first opinion on me 💭</h3>
+  <textarea placeholder="Type here..."></textarea>
+  <button onclick="go(5)">Next 💕</button>
+</div>
+
+<div class="card hidden" id="p6">
+  <h3>One word about me 🥹</h3>
+  <input placeholder="One word...">
+  <button onclick="go(6)">Finish 💖</button>
+</div>
+
+<div class="card hidden" id="p7">
+  <h2>For You ❤️</h2>
+  <div class="letter">
+    No quiz could ever measure what we share.<br><br>
+    You make me feel safe, loved, and understood in ways
+    I never knew I needed 🥺💗<br><br>
+    Thank you for choosing me, for staying,
+    and for loving me exactly the way I am.<br><br>
+    I choose you. Always.
+  </div>
+  <h1>I love you ❤️</h1>
+</div>
+
+</div>
+
+<script>
+function go(n, btn) {
+  if (btn) btn.classList.add("clicked");
+  setTimeout(() => {
+    document.getElementById("p"+n).classList.add("hidden");
+    document.getElementById("p"+(n+1)).classList.remove("hidden");
+  }, 300);
+}
+</script>
+
+</body>
+</html>
